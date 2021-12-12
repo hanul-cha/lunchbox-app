@@ -1,5 +1,4 @@
 import Loading from "../components/Login/Loading";
-import Footer from "../components/Footer";
 import { useState } from "react";
 import LoginMain from "../components/Login/LoginMain";
 
