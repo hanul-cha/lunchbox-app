@@ -1,7 +1,10 @@
+import Loading from "../components/Login/Loading";
+import Footer from "../components/Footer";
+
 const Login = () => {
   return (
     <>
-      <h2>Login</h2>
+      <Loading />
     </>
   );
 };
