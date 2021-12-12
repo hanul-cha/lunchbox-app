@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
-import "./LoginMain.css";
+import "./LoginMain.css"
 
 const LoginMain = () => {
   const loginMainRef = useRef<HTMLDivElement>(null);
@@ -10,6 +10,7 @@ const LoginMain = () => {
       console.log(loginMainRef.current);
       const { current } = loginMainRef;
       if (current) {
+        current.style.opacity = "0";
         current.style.transition = `opacity 3s 0s`;
         current.style.opacity = "1";
       }
