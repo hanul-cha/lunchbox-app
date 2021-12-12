@@ -1,12 +1,16 @@
 import Loading from "../components/Login/Loading";
 import Footer from "../components/Footer";
+import { useState } from "react";
+import LoginMain from "../components/Login/LoginMain";
 
 const Login = () => {
-  return (
-    <>
-      <Loading />
-    </>
-  );
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  },3000);
+
+  return <>{loading ? <Loading /> : <LoginMain />}</>;
 };
 
 export default Login;

@@ -1,0 +1,10 @@
+.loadWrapper{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.loading{
+    text-align: center;
+    color: #434343;
+}
