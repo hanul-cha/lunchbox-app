@@ -1,11 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import "./LoginMain.css";
 
-const LoginMain = () => {
-  const [ id, setId ] = useState("");
-  const [ passwd, setPasswd ] = useState("");
+interface LoginMainTypeProps {
+  id :string
+  passwd :string
+  setId :(id :string) => void
+  setPasswd :(passwd :string) => void
+}
+
+const LoginMain = ({id, passwd, setId, setPasswd} :LoginMainTypeProps) => {
+  
   const printIdAndPasswd = () => {
     console.log(id, passwd)
   }
