@@ -1,9 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import "./LoginMain.css";
 
 const LoginMain = () => {
+  const [ id, setId ] = useState("");
+  const [ passwd, setPasswd ] = useState("");
+  const printIdAndPasswd = () => {
+    console.log(id, passwd)
+  }
+
   const loginMainRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (loginMainRef !== null) {
@@ -28,6 +34,7 @@ const LoginMain = () => {
                 className="form-control"
                 id="floatingId"
                 placeholder="Id"
+                onChange={e => setId(e.target.value)}
               />
               <label htmlFor="floatingId">Id</label>
             </div>
@@ -38,14 +45,15 @@ const LoginMain = () => {
                 className="form-control"
                 id="floatingPassword"
                 placeholder="Password"
+                onChange={e => setPasswd(e.target.value)}
               />
               <label htmlFor="floatingPassword">Password</label>
             </div>
 
             <div className="buttonContainer">
               <div className="d-grid gap-2">
-                <button className="loginButton btn btn-primary" type="button">
-                  Button
+                <button onClick={printIdAndPasswd} className="loginButton btn btn-primary" type="button">
+                  Login
                 </button>
               </div>
             </div>
