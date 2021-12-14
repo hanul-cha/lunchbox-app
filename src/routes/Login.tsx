@@ -7,7 +7,8 @@ const Login = () => {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("");
   const [passwd, setPasswd] = useState("");
-  const [runLogin , setRunLogin] = useState(false)
+  const [runLogin , setRunLogin] = useState(false);
+  const [ failedAlarm, setFailedAlarm ] = useState(false)
   const login = () => {
     setRunLogin(true)
   };
@@ -18,6 +19,7 @@ const Login = () => {
 
   return (
     <>
+      {failedAlarm && <h1>로그인 실패</h1>}
       {loading ? (
         <Loading />
       ) : (
@@ -30,7 +32,7 @@ const Login = () => {
         />
       )}
 
-      {runLogin? <RunLogin id={id} passwd={passwd} /> : <></>}
+      {runLogin && <RunLogin id={id} passwd={passwd} setRunLogin={setRunLogin} setFailedAlarm={setFailedAlarm} />}
     </>
   );
 };
