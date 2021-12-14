@@ -8,13 +8,10 @@ interface LoginMainTypeProps {
   passwd :string
   setId :(id :string) => void
   setPasswd :(passwd :string) => void
+  login: () => void
 }
 
-const LoginMain = ({id, passwd, setId, setPasswd} :LoginMainTypeProps) => {
-  
-  const printIdAndPasswd = () => {
-    console.log(id, passwd)
-  }
+const LoginMain = ({id, passwd, setId, setPasswd, login} :LoginMainTypeProps) => {
 
   const loginMainRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -58,7 +55,7 @@ const LoginMain = ({id, passwd, setId, setPasswd} :LoginMainTypeProps) => {
 
             <div className="buttonContainer">
               <div className="d-grid gap-2">
-                <button onClick={printIdAndPasswd} className="loginButton btn btn-primary" type="button">
+                <button onClick={login} className="loginButton btn btn-primary" type="button">
                   Login
                 </button>
               </div>
