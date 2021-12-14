@@ -2,15 +2,22 @@ import Loading from "../components/Login/Loading";
 import { useState } from "react";
 import LoginMain from "../components/Login/LoginMain";
 import RunLogin from "../backend/RunLogin";
+import LoginFailAlert from "../components/Login/LoginFailAlert";
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("");
   const [passwd, setPasswd] = useState("");
-  const [runLogin , setRunLogin] = useState(false);
-  const [ failedAlarm, setFailedAlarm ] = useState(false)
+  const [runLogin, setRunLogin] = useState(false);
+  const [failedAlarm, setFailedAlarm] = useState(false);
   const login = () => {
-    setRunLogin(true)
+    setRunLogin(true);
+  };
+
+  const offFailedAlarm = () => {
+    setTimeout(() => {
+      setFailedAlarm(false);
+    }, 1000);
   };
 
   setTimeout(() => {
@@ -19,7 +26,7 @@ const Login = () => {
 
   return (
     <>
-      {failedAlarm && <h1>로그인 실패</h1>}
+      {failedAlarm && <LoginFailAlert />}
       {loading ? (
         <Loading />
       ) : (
@@ -32,7 +39,15 @@ const Login = () => {
         />
       )}
 
-      {runLogin && <RunLogin id={id} passwd={passwd} setRunLogin={setRunLogin} setFailedAlarm={setFailedAlarm} />}
+      {runLogin && (
+        <RunLogin
+          id={id}
+          passwd={passwd}
+          setRunLogin={setRunLogin}
+          setFailedAlarm={setFailedAlarm}
+          offFailedAlarm = {offFailedAlarm}
+        />
+      )}
     </>
   );
 };
