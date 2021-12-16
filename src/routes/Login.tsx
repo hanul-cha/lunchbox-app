@@ -22,6 +22,12 @@ const Login = () => {
       }, 1000);
     }
   })
+  /* 
+  여기서 useEffect를 쓰는 이유:
+  failedAlarm은 런로딩 컴포넌트에서 버튼을 누를때마다
+  true로 바뀌어 리랜더가 발생하고 거기에 반응해서 한번씩 실행해 주기 위해 작성함
+  저거 없으면 내생각엔 무한루프나 여러번 실행될것이다. 
+  */
 
   //clean-up
   useEffect(() => {
@@ -30,10 +36,7 @@ const Login = () => {
     }
   },[])
   /* 
-  여기서 useEffect를 쓰는 이유:
-  failedAlarm은 런로딩 컴포넌트에서 버튼을 누를때마다
-  true로 바뀌어 리랜더가 발생하고 거기에 반응해서 한번씩 실행해 주기 위해 작성함
-  저거 없으면 내생각엔 무한루프나 여러번 실행될것이다. 
+  route를 떠나기 전에 전부 꺼주는 클린업 공식같은 느낌이 강하다
   */
 
   const login = () => {
@@ -44,7 +47,7 @@ const Login = () => {
     clearTimeout()
     navigate("/main",{
       state: {
-        id:1234
+        id
       }
     })
     
