@@ -39,7 +39,6 @@ const RunLogin = ({
         setFailedAlarm(true);
         setRunLogin(false);
       } else {
-        setRunLogin(false);
         goMain();
         /* 여기서 setRunLogin을 꺼주는 이유는 Login에서 라우트가 변경되고 리랜더링을 시도하기 때문에 꺼버림 */
       }

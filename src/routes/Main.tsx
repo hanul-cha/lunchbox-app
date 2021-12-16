@@ -5,7 +5,8 @@ import OrderCanceled from "../components/Main/OrderCanceled";
 import Footer from "../components/Footer";
 
 
-const Main = () => {
+const Main = (props:any) => {
+  console.log(props)
   return (
     <>
       <h2>Main</h2>

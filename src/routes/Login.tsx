@@ -22,6 +22,13 @@ const Login = () => {
       }, 1000);
     }
   })
+
+  //clean-up
+  useEffect(() => {
+    return () => {
+      setRunLogin(false)
+    }
+  },[])
   /* 
   여기서 useEffect를 쓰는 이유:
   failedAlarm은 런로딩 컴포넌트에서 버튼을 누를때마다
@@ -34,9 +41,13 @@ const Login = () => {
   };
 
   const goMain = () => {
-    console.log("tes");
-    navigate("/main")
     clearTimeout()
+    navigate("/main",{
+      state: {
+        id:1234
+      }
+    })
+    
   };
 
   setTimeout(() => {
