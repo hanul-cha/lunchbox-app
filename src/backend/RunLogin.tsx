@@ -5,7 +5,6 @@ interface RunLoginTypeProps {
   passwd: string;
   setRunLogin: (flag: boolean) => void;
   setFailedAlarm: (flag :boolean) => void;
-  offFailedAlarm: () => void;
 }
 
 const GET_USER_INFO = gql`
@@ -16,7 +15,7 @@ const GET_USER_INFO = gql`
   }
 `;
 
-const RunLogin = ({ id, passwd, setRunLogin, setFailedAlarm, offFailedAlarm }: RunLoginTypeProps) => {
+const RunLogin = ({ id, passwd, setRunLogin, setFailedAlarm }: RunLoginTypeProps) => {
   const { loading, data } = useQuery(GET_USER_INFO, {
     variables: {
       userId: id,
@@ -27,12 +26,10 @@ const RunLogin = ({ id, passwd, setRunLogin, setFailedAlarm, offFailedAlarm }: R
       if (data.personByUserId === null) {
         /* console.log("존재하지 않는 아이디 입니다"); */
         setFailedAlarm(true)
-        offFailedAlarm()
         setRunLogin(false);
       } else if (passwd !== data.personByUserId.password) {
         console.log("비밀번호가 틀렸습니다");
         setFailedAlarm(true)
-        offFailedAlarm()
         setRunLogin(false);
       } else {
         console.log("로그인 성공");
