@@ -1,38 +1,29 @@
+import { useState } from "react";
 import Footer from "../components/Footer";
+import IdAndPasswordDefaultAddress from "../components/join/IdAndPasswordDefaultAddress";
+import "./Join.css";
 
 const Join = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+
+  const alarmOn = () => {
+
+  }
+
   return (
     <>
       <div className="joinMain fullsize">
-        <div className="idAndPasswordDefaultAddress">
-          <div className="id form-floating">
-            <input
-              type="text"
-              className="form-control"
-              id="idInJoinInput"
-              placeholder="Id"
-            />
-            <label htmlFor="idInJoinInput">Id</label>
-          </div>
-          <div className="passwd form-floating">
-            <input
-              type="text"
-              className="form-control"
-              id="passwordInJoinInput"
-              placeholder="Id"
-            />
-            <label htmlFor="passwordInJoinInput">password</label>
-          </div>
-          <div className="id form-floating">
-            <input
-              type="text"
-              className="form-control"
-              id="addressInJoinInput"
-              placeholder="Id"
-            />
-            <label htmlFor="addressInJoinInput">default aaddress</label>
-          </div>
-        </div>
+        <IdAndPasswordDefaultAddress
+          id={id}
+          setId={setId}
+          password={password}
+          setPassword={setPassword}
+          address={address}
+          setAddress={setAddress}
+          alarmOn={alarmOn}
+        />
         <Footer />
       </div>
     </>
