@@ -1,3 +1,5 @@
+//이 앱은 Apollo client 를 사용해 백엔드와 통신합니다.
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Join from "./routes/Join";
 import Login from "./routes/Login";

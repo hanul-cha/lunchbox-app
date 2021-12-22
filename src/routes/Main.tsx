@@ -12,7 +12,7 @@ const Main = () => {
   console.log(id);
   return (
     <>
-      <h2>Main</h2>
+      <h2>{id}님 안녕하세요</h2>
     </>
   );
 };
