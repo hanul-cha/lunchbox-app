@@ -9,8 +9,9 @@ const Join = () => {
   const [address, setAddress] = useState("");
 
   const alarmOn = () => {
-
+    console.log("로그인 실패")
   }
+  //회원가입 실패하면 알람이 1초간 켜졌다가 꺼짐
 
   return (
     <>

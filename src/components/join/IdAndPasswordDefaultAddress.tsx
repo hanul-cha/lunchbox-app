@@ -7,6 +7,7 @@ interface IPDA_TypeProps {
   setPassword: (a: string) => void;
   address: string;
   setAddress: (a: string) => void;
+  alarmOn: () => void
 }
 
 const IdAndPasswordDefaultAddress = ({
@@ -16,13 +17,18 @@ const IdAndPasswordDefaultAddress = ({
   setPassword,
   address,
   setAddress,
+  alarmOn
 }: IPDA_TypeProps) => {
   const setUser = () => {
     console.log(id, password, address);
   };
 
   const join = () => {
-    setUser();
+    if(id !== '' && password !== ""){
+      setUser()
+    } else {
+      alarmOn()
+    }
   };
   return (
     <>
